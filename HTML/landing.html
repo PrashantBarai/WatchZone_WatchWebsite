@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchZone - Home</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .circular-gradient {
+            background: radial-gradient(circle at center, #f6ad55 30%, #fc8181 60%);
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            min-width: 300px; /* Adjust the width of each item */
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-bold text-orange-500">WatchZone</h1>
+                <p class="ml-2 text-sm text-gray-500">Your Premier Destination of Watches</p>
+            </div>
+            <nav class="space-x-8">
+                <a href="#" class="text-gray-800 hover:text-orange-500">Smart Watches</a>
+                <a href="#" class="text-gray-800 hover:text-orange-500">Analog Watches</a>
+                <a href="login.html" class="text-gray-800 hover:text-orange-500">Login</a>
+                <a href="signup.html" class="text-gray-800 hover:text-orange-500">SignUp</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="circular-gradient py-16">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="text-center">
+                <h2 class="text-6xl font-bold text-gray-800 mb-6">Get Energized</h2>
+                <p class="text-xl text-orange-600 mb-8">Get the new series watch, now installed with your new personal health coach.</p>
+                <div class="flex justify-center space-x-4">
+                    <button class="px-6 py-3 bg-orange-400 text-white font-semibold rounded-lg hover:bg-orange-500">Buy Now Smart Watch</button>
+                    <button class="px-6 py-3 bg-red-400 text-white font-semibold rounded-lg hover:bg-red-500">Buy Now Analog Watch</button>
+                </div>
+            </div>
+            <div class="relative w-1/2">
+                <img src="/Images/M1.png" alt="Smartwatch 1" class="top-20 -right-10 w-60">
+                <!-- <img src="/Images/M1.png" alt="Smartwatch 2" class="absolute top-60 right-90 w-60">
+                <img src="/Images/M2.png" alt="Smartwatch 3" class="absolute -bottom-50 right-10 w-60"> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Watches Section -->
+    <section class="container mx-auto py-16">
+        <h3 class="text-3xl font-bold text-center mb-8">Featured Watches</h3>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/A2.png" alt="Jack Mason Watch" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Jack Mason Watch</h4>
+                    <p class="text-gray-600 mb-2">$250 <span class="text-sm line-through">$300</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/D1.png" alt="Digital Smart Watch" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Digital Smart Watch</h4>
+                    <p class="text-gray-600 mb-2">$95 <span class="text-sm line-through">$120</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/A1.png" alt="Luxury Watch" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Luxury Watch</h4>
+                    <p class="text-gray-600 mb-2">$350 <span class="text-sm line-through">$400</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/D2.png" alt="Sports Watch" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Sports Watch</h4>
+                    <p class="text-gray-600 mb-2">$200 <span class="text-sm line-through">$250</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg text-center">
+                    <img src="/Images/D1.png" alt="Classic Watch" class="w-full mb-4">
+                    <h4 class="text-lg font-bold">Classic Watch</h4>
+                    <p class="text-gray-600 mb-2">$150 <span class="text-sm line-through">$180</span></p>
+                    <button class="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-4">
+            <button id="prev" class="px-4 py-2 bg-orange-400 text-white rounded-[45px] hover:bg-orange-500 mx-3">Previous</button>
+            <button id="next" class="px-6 py-4 bg-orange-400 text-white rounded-[45px] hover:bg-orange-500 mx-3">Next</button>
+        </div>        
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2024 WatchZone. All rights reserved.</p>
+    </footer>
+
+    <script src="/JS/landing.js"></script>
+</body>
+
+</html>

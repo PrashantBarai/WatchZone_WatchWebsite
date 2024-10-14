@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Smart Watch Page</title>
+    <style>
+        /* Custom styles */
+        .active {
+            background-color: #FF5733; /* Highlight color */
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="flex justify-between items-center p-4 bg-white shadow-md">
+        <div>
+            <h1 class="text-2xl font-bold text-orange-500">WatchZone</h1>
+            <span class="text-gray-500">Your Premier Destination of Watches</span>
+        </div>
+        <nav class="flex space-x-4">
+            <a href="#" class="text-gray-700 hover:text-orange-500">Home</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">Smart Watch</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">View Cart</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">CheckOut</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">Analog Watch</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">Contact</a>
+            <a href="#" class="text-gray-700 hover:text-orange-500">Profile</a>
+        </nav>
+    </header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-1/4 p-4 bg-white shadow-md">
+            <h2 class="text-lg font-semibold">Sort By</h2>
+            <div class="mt-2">
+                <label class="block">
+                    <input type="checkbox" class="mr-2"> Price
+                </label>
+                <label class="block">
+                    <input type="checkbox" class="mr-2"> Gender
+                </label>
+                <label class="block">
+                    <input type="checkbox" class="mr-2"> Brands
+                </label>
+                <label class="block">
+                    <input type="checkbox" class="mr-2"> Strap Material & Color
+                </label>
+            </div>
+            <h2 class="text-lg font-semibold mt-4">Shipping Period</h2>
+            <div class="mt-2">
+                <button class="w-full text-left py-2 border-b">1 Day</button>
+                <button class="w-full text-left py-2 border-b">2 Day</button>
+                <button class="w-full text-left py-2 border-b">Custom Delivery Day</button>
+            </div>
+            <h2 class="text-lg font-semibold mt-4">Sections</h2>
+            <div class="mt-2">
+                <button class="w-full text-left py-2 border-b">Product History</button>
+                <button class="w-full text-left py-2 border-b">Favorites</button>
+                <button class="w-full text-left py-2 border-b">Bookmarks</button>
+                <button class="w-full text-left py-2 border-b active">Add to Cart</button>
+                <button class="w-full text-left py-2 border-b">CheckOut</button>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="flex-grow p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Product Card -->
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <img src="/Images/D1.png" alt="Samsung Watch 6" class="w-full h-50 object-cover rounded-lg">
+                <h3 class="mt-2 text-lg font-semibold">SAMSUNG Watch 6</h3>
+                <p class="text-gray-700">$50</p>
+                <button class="mt-2 w-full bg-orange-400 text-white rounded-lg py-2 hover:bg-orange-500">View Product</button>
+            </div>
+            <!-- Repeat for more products -->
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <img src="/Images/D2.png" alt="Samsung Watch 6" class="w-full h-50 object-cover rounded-lg">
+                <h3 class="mt-2 text-lg font-semibold">SAMSUNG Watch 6</h3>
+                <p class="text-gray-700">$50</p>
+                <button class="mt-2 w-full bg-orange-400 text-white rounded-lg py-2 hover:bg-orange-500">View Product</button>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <img src="/Images/D1.png" alt="Samsung Watch 6" class="w-full h-50 object-cover rounded-lg">
+                <h3 class="mt-2 text-lg font-semibold">SAMSUNG Watch 6</h3>
+                <p class="text-gray-700">$50</p>
+                <button class="mt-2 w-full bg-orange-400 text-white rounded-lg py-2 hover:bg-orange-500">View Product</button>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <img src="/Images/D2.png" alt="Samsung Watch 6" class="w-full h-50 object-cover rounded-lg">
+                <h3 class="mt-2 text-lg font-semibold">SAMSUNG Watch 6</h3>
+                <p class="text-gray-700">$50</p>
+                <button class="mt-2 w-full bg-orange-400 text-white rounded-lg py-2 hover:bg-orange-500">View Product</button>
+            </div>
+            <!-- Add more products as needed -->
+        </main>
+    </div>
+
+    <footer class="bg-gray-200 text-center p-4 mt-4">
+        <div class="flex justify-center space-x-4">
+            <a href="#" class="text-gray-700">Use cases</a>
+            <a href="#" class="text-gray-700">UI design</a>
+            <a href="#" class="text-gray-700">Explore</a>
+            <a href="#" class="text-gray-700">Design</a>
+        </div>
+    </footer>
+
+</body>
+</html>

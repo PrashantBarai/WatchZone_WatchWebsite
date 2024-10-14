@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - WatchZone</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> <!-- Tailwind CSS from CDN -->
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-blue-600">
+  <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-center text-gray-800">Login</h2>
+    <form id="loginForm" class="space-y-4">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input id="email" name="email" type="email" required class="w-full p-2 mt-1 border rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input id="password" name="password" type="password" required class="w-full p-2 mt-1 border rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <button type="submit" class="w-full p-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600">Log In</button>
+    </form>
+    <p class="text-sm text-center text-gray-600">Don't have an account? <a href="signup.html" class="text-blue-500 hover:underline">Sign up</a></p>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>
