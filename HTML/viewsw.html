@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://fontawesome.com/search?m=free&o=r" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-white shadow-md">
+        <a href="landing.html" class="text-3xl ml-7 font-bold text-orange-500">WatchZone</a>
+        <nav>
+            <ul class="flex space-x-7 text-lg mr-8">
+                <li><a href="landing.html" class="text-gray-600 hover:text-orange-500">Home</a></li>
+                <li><a href="smartwatch.html" class="text-gray-600 hover:text-orange-500">Smart Watch</a></li>
+                <li><a href="cart.html" class="text-gray-600 hover:text-orange-500">View History</a></li>
+                <li><a href="checkout.html" class="text-gray-600 hover:text-orange-500">Checkout</a></li>
+                <!-- <li><a href="profile.html" class="text-gray-600 hover:text-orange-500">Profile</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Product Details Section -->
+    <div class="max-w-7xl mx-auto mt-10 p-5 bg-white rounded-lg shadow-md">
+        <div class="flex">
+            <div class="w-1/2">
+                <img src="/Images/D1.png" alt="Product Image" class="w-1/2 h-auto rounded-lg ml-12 mt-8">
+            </div>
+            <div class="w-1/2 pl-5">
+                <h1 class="text-2xl font-bold">SAMSUNG Watch 6, 1.83" Smart Watch with Bluetooth Calling</h1>
+                <p class="mt-2 text-gray-700">AI Voice Assistant, 100 Sports Modes, IP67 Rating, 240 * 280 Pixel High Resolution (Black)</p>
+                <p class="mt-4 text-xl font-bold text-red-600">$50 <span class="line-through text-gray-500">M.R.P.: $100</span></p>
+                <div class="flex items-center mt-2">
+                    <span class="text-yellow-500">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    <span class="text-gray-600 ml-2">(4/5 based on 250 ratings)</span>
+                </div>
+                <div class="mt-4">
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-3xl mr-2 hover:bg-green-600">Add to Cart</button>
+                    <button class="bg-orange-500 text-white py-2 px-4 rounded-3xl hover:bg-green-600">Buy Now</button>
+                </div>
+                <p class="mt-4 text-gray-600">Free delivery | 1 Year Warranty</p>
+                <h2 class="mt-5 text-lg font-semibold">Product Details</h2>
+                <p class="text-gray-600">Brand: Boltt Model: Watch 6 | Screen: Size 1.83 Inches | Color: Black | Memory: 8GB</p>
+            </div>
+        </div>
+
+        <!-- Latest Reviews Section -->
+        <div class="mt-10">
+            <h2 class="text-lg font-semibold">Latest Reviews</h2>
+            <div class="flex flex-col mt-4">
+                <div class="border p-4 rounded-lg mb-4">
+                    <h3 class="text-md font-bold">Review title</h3>
+                    <p class="text-gray-600">Review body</p>
+                    <p class="text-gray-500">Reviewer name | Date</p>
+                </div>
+                <div class="border p-4 rounded-lg">
+                    <h3 class="text-md font-bold">Review title</h3>
+                    <p class="text-gray-600">Review body</p>
+                    <p class="text-gray-500">Reviewer name | Date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-yellow-400 bg-opacity-50 text-black py-3 mt-6 text-center">
+        <p>&copy; 2024 WatchZone. All rights reserved.</p>
+    </footer>
+
+    <script src="/JS/smartwatch.js"></script>
+</body>
+</html>
