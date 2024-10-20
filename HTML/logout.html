@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out - WatchZone</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-orange-500">Logging Out...</h1>
+        <p class="text-lg font-medium text-zinc-700">You will be redirected shortly.</p>
+    </div>
+
+    <script>
+        // Clear user session or token here if applicable
+        // For example, if you're using localStorage:
+        localStorage.removeItem('userToken');
+
+        // Redirect to the home page after a short delay
+        setTimeout(() => {
+            window.location.href = 'landing.html'; // Change to your landing page URL
+        }, 2000); // 2 seconds delay
+    </script>
+</body>
+</html>

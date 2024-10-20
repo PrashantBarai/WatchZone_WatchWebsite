@@ -37,7 +37,7 @@
             });
 
             // JavaScript to handle adding to Favorites, Bookmarks, and Cart
-            document.querySelectorAll('.fas.fa-heart').forEach(button => {
+            document.querySelectorAll('.fas.fa-star').forEach(button => {
                 button.addEventListener('click', () => {
                     alert('Added to Favorites');
                     // Additional logic for adding to the sidebar

@@ -7,130 +7,127 @@
     <title>WatchZone - Home</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
-         /* General Styles */
-    .hero-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 3rem 2rem;
-    }
+        /* General Styles */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 2rem;
+        }
 
-    /* Circular gradient around the watch image */
-    .watch-image {
-        background: radial-gradient(circle, rgba(254, 196, 45, 1) 50%, rgba(255, 124, 25, 0.8) 70%);
-        border-radius: 50%;
-        width: 50%;
-        margin-right: 100px;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        /* Circular gradient around the watch image */
+        .watch-image {
+            background: radial-gradient(circle, rgba(254, 196, 45, 1) 50%, rgba(255, 124, 25, 0.8) 70%);
+            border-radius: 50%;
+            width: 50%;
+            margin-right: 100px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .watch-image img {
-        width: 70%;
-        height: 40%;
-        height: auto;
-        object-fit: contain;
-    }
+        .watch-image img {
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+        }
 
-    /* Content next to the watch */
-    .hero-content {
-        max-width: 50%;
-    }
+        /* Content next to the watch */
+        .hero-content {
+            max-width: 50%;
+        }
 
-    .hero-buttons {
-        margin-top: 2rem;
-    }
+        .hero-buttons {
+            margin-top: 2rem;
+        }
 
-    /* Carousel Styling */
-    .carousel {
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-    }
+        /* Carousel Styling */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+        }
 
-    .carousel-item {
-        min-width: 300px;
-        padding: 1rem;
-        transition: transform 0.5s ease;
-    }
+        .carousel-item {
+            min-width: 300px;
+            padding: 1rem;
+            transition: transform 0.5s ease;
+        }
 
-    .carousel-item img {
-        width: 250px;
-        height: 250px;
-        object-fit: contain;
-    }
+        .carousel-item img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
 
-    .featured-watch {
-        text-align: center;
-    }
+        .featured-watch {
+            text-align: center;
+        }
 
-    /* Buttons */
-    .btn-primary {
-        background-color: #FFA500;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 45px;
-        font-weight: bold;
-        transition: background-color 0.3s;
-    }
+        /* Buttons */
+        .btn-primary {
+            background-color: #FFA500;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 45px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
 
-    .btn-primary:hover {
-        background-color: #FF8C00;
-    }
+        .btn-primary:hover {
+            background-color: #FF8C00;
+        }
     </style>
 </head>
 
 <body class="bg-gray-100">
     <header class="bg-white py-6">
-    <div class="container mx-auto">
-        <nav class="flex justify-between items-center">
-            <!-- Website name on the left -->
-            <div class="flex flex-col">
-                <h1 class="text-3xl font-bold text-orange-500 px-12"><a href="landing.html">WatchZone</a></h1>
-                <!-- Description below the website name -->
-                <p class="text-lg font-semibold text-zinc-700">Your Premier Destination of Watches</p>
-            </div>
-
-            <!-- Navigation on the right -->
-            <div class="flex gap-10">
-                <a href="smartwatch.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Smart Watches</a>
-                <a href="analogwatch.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Analog Watches</a>
-                <a href="login.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Login</a>
-                <a href="signup.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">SignUp</a>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section class="hero-section mt-6">
-            <!-- Left Watch Image with circular gradient background -->
-            <div class="watch-image">
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c73ddcdc280424e5ed0d60a0adb255f8f8d1ae8a3879311a2e097748bcf7ef2?placeholderIfAbsent=true&apiKey=e560e559774d48dd9dea039cfebc891e"
-                    alt="Featured Watch">
-            </div>
-
-            <!-- Right Text and Buttons (No background) -->
-            <div class="hero-content">
-                <h2 class="text-5xl text-orange-500 font-bold mb-4">Get Energized</h2>
-                <p class="text-2xl font-medium text-zinc-700 mb-6">
-                    Get the new series watch, now installed with your new personal health coach.
-                </p>
-
-                <!-- Buttons with Color Styling -->
-                <div class="hero-buttons flex gap-4">
-                    <a href="smartwatch.html" class="btn-primary">Buy Smart Watch</a>
-                    <a href="analogwatch.html" class="btn-primary">Buy Analog Watch</a>
+        <div class="container mx-auto">
+            <nav class="flex justify-between items-center">
+                <!-- Website name on the left -->
+                <div class="flex flex-col">
+                    <h1 class="text-3xl font-bold text-orange-500 px-12"><a href="landing.html">WatchZone</a></h1>
+                    <p class="text-lg font-semibold text-zinc-700">Your Premier Destination of Watches</p>
                 </div>
-            </div>
-        </section>
-    </div>
-</header>
+
+                <!-- Navigation on the right -->
+                <div class="flex gap-10">
+                    <a href="smartwatch.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Smart Watches</a>
+                    <a href="analogwatch.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Analog Watches</a>
+
+                    <!-- Buttons for login/logout -->
+                    <a id="login" href="login.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Login</a>
+                    <a id="signup" href="signup.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500">Sign Up</a>
+                    <a id="logout" href="logout.html" class="text-lg font-bold text-zinc-700 hover:text-orange-500" style="display: none;">Logout</a>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="hero-section mt-6">
+                <div class="watch-image">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6c73ddcdc280424e5ed0d60a0adb255f8f8d1ae8a3879311a2e097748bcf7ef2?placeholderIfAbsent=true&apiKey=e560e559774d48dd9dea039cfebc891e"
+                        alt="Featured Watch">
+                </div>
+
+                <div class="hero-content">
+                    <h2 class="text-5xl text-orange-500 font-bold mb-4">Get Energized</h2>
+                    <p class="text-2xl font-medium text-zinc-700 mb-6">Get the new series watch, now installed with your
+                        new personal health coach.</p>
+
+                    <div class="hero-buttons flex gap-4">
+                        <a href="smartwatch.html" class="btn-primary">Buy Smart Watch</a>
+                        <a href="analogwatch.html" class="btn-primary">Buy Analog Watch</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>
 
     <!-- Featured Watches Section -->
     <section class="container mx-auto py-16">
@@ -144,37 +141,7 @@
                     <button class="btn-primary">Buy Now</button>
                 </div>
                 <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/A2.png" alt="Jack Mason Watch">
-                    <h4 class="text-lg font-bold">Jack Mason Watch</h4>
-                    <p class="text-gray-600 mb-2">$250 <span class="text-sm line-through">$300</span></p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/M2.png" alt="Digital Smart Watch">
-                    <h4 class="text-lg font-bold">Digital Smart Watch</h4>
-                    <p class="text-gray-600 mb-2">$95 <span class="text-sm line-through">$120</span></p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/A2.png" alt="Jack Mason Watch">
-                    <h4 class="text-lg font-bold">Jack Mason Watch</h4>
-                    <p class="text-gray-600 mb-2">$250 <span class="text-sm line-through">$300</span></p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/M1.png" alt="Smart Watch Series 5">
-                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
-                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/D1.png" alt="Smart Watch Series 5">
-                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
-                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
-                    <img src="/Images/D2.png" alt="Smart Watch Series 5">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
                     <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
                     <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
                     <button class="btn-primary">Buy Now</button>
@@ -185,6 +152,37 @@
                     <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
                     <button class="btn-primary">Buy Now</button>
                 </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <div class="carousel-item bg-white p-4 rounded-lg shadow-lg featured-watch">
+                    <img src="/Images/A1.png" alt="Smart Watch Series 5">
+                    <h4 class="text-lg font-bold">Smart Watch Series 5</h4>
+                    <p class="text-gray-600 mb-2">$105 <span class="text-sm line-through">$130</span></p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <!-- Add more carousel items as needed -->
             </div>
         </div>
         <div class="flex justify-center mt-4">
@@ -200,4 +198,5 @@
 
     <script src="/JS/landing.js"></script>
 </body>
+
 </html>

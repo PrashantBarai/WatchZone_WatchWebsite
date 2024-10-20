@@ -1,56 +1,56 @@
-const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
-let currentIndex = 1; // Start with the first item visible (the clone)
-const totalItems = items.length;
-const visibleItems = 3; // Change based on how many items to show at once
+window.onload = function () {
+    // Mock login state (replace with actual logic)
+    let isLoggedIn = false; // Change this based on your login logic
 
-// Clone the first two items and append them to the end of the track
-const cloneFirst = items[0].cloneNode(true);
-const cloneSecond = items[1].cloneNode(true);
-track.appendChild(cloneFirst);
-track.appendChild(cloneSecond);
+    const loginButton = document.getElementById('login');
+    const signupButton = document.getElementById('signup');
+    const logoutButton = document.getElementById('logout');
 
-function updateCarousel() {
-    const itemWidth = items[0].getBoundingClientRect().width;
-    track.style.transform = 'translateX(' + (-itemWidth * currentIndex) + 'px)';
-
-    // Reset index if we reach the clones
-    if (currentIndex === totalItems + 1) {
-        currentIndex = 1; // Jump to the first actual item
-        track.style.transition = 'none'; // Disable transition for instant jump
-        setTimeout(() => {
-            track.style.transform = 'translateX(' + (-itemWidth * currentIndex) + 'px)';
-            track.style.transition = ''; // Re-enable transition
-        }, 0);
-    } else if (currentIndex === 0) {
-        currentIndex = totalItems; // Jump to the last actual item
-        track.style.transition = 'none'; // Disable transition for instant jump
-        setTimeout(() => {
-            track.style.transform = 'translateX(' + (-itemWidth * currentIndex) + 'px)';
-            track.style.transition = ''; // Re-enable transition
-        }, 0);
+    // Update the button visibility based on login state
+    function updateAuthButtons() {
+        if (isLoggedIn) {
+            loginButton.style.display = 'none';
+            signupButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+        } else {
+            loginButton.style.display = 'block';
+            signupButton.style.display = 'block';
+            logoutButton.style.display = 'none';
+        }
     }
 
-    // Scale the current item larger
-    items.forEach((item, index) => {
-        item.style.transform = 'scale(0.9)'; // Default scale
-        if (index === currentIndex) {
-            item.style.transform = 'scale(1)'; // Scale up the current item
-        }
+    // Update button visibility on page load
+    updateAuthButtons();
+
+    // Logout logic
+    logoutButton.addEventListener('click', function () {
+        isLoggedIn = false; // Update the login state
+        updateAuthButtons(); // Update button visibility
     });
-}
 
-nextButton.addEventListener('click', () => {
-    currentIndex++;
+    // Carousel logic
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentIndex = 0; // Start at the first item
+    const totalItems = items.length;
+
+    function updateCarousel() {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        track.style.transform = 'translateX(' + (-itemWidth * currentIndex) + 'px)';
+    }
+
+    nextButton.addEventListener('click', function () {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', function () {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+    });
+
+    // Initial carousel update
     updateCarousel();
-});
-
-prevButton.addEventListener('click', () => {
-    currentIndex--;
-    updateCarousel();
-});
-
-// Initial call to set up the carousel
-updateCarousel();
+};
