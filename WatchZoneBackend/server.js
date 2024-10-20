@@ -1,9 +1,9 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/uploads', express.static('uploads')); // Serve the uploads directory
+app.use(express.static('public')); // Serve static files from the public directory
 
 // MongoDB connection
-const uri = process.env.MONGODB_URI; // Make sure your connection string is correctly set in .env
+const uri = process.env.MONGODB_URI; // Ensure your connection string is set in .env
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
     .catch(err => console.error("MongoDB connection error:", err));
@@ -32,6 +34,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// Serve the HTML form for adding a product
+app.get('/add-product', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'add-product.html'));
+});
+
 // Product Schema
 const productSchema = new mongoose.Schema({
     name: String,
@@ -46,13 +53,19 @@ const Product = mongoose.model('Product', productSchema);
 // Route to Add Product (POST)
 app.post('/api/products', upload.single('image'), async (req, res) => {
     const { name, price, description } = req.body;
-    const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`; // Construct the image URL
+
+    if (!req.file) {
+        return res.status(400).json({ message: 'No file uploaded.' });
+    }
+
+    const imageUrl = `http://localhost:${PORT}/uploads/${req.file.filename}`;
 
     try {
         const newProduct = new Product({ name, price, imageUrl, description });
         await newProduct.save();
         res.status(201).json(newProduct);
     } catch (err) {
+        console.error('Error saving product:', err); // Log the error for debugging
         res.status(500).json({ message: 'Failed to add product' });
     }
 });
@@ -71,7 +84,7 @@ app.get('/api/products', async (req, res) => {
 const userSchema = new mongoose.Schema({
     username: String,
     email: String,
-    password: String, // No hashing as per your requirement
+    password: String,
 });
 
 const User = mongoose.model('User', userSchema);
@@ -79,13 +92,10 @@ const User = mongoose.model('User', userSchema);
 // Signup endpoint
 app.post('/api/signup', async (req, res) => {
     const { username, email, password } = req.body;
-
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
         return res.status(400).json({ message: "User already exists" });
     }
-
     const newUser = new User({ username, email, password });
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
@@ -96,22 +106,16 @@ app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Replace with your database fetching logic
-        const user = await User.findOne({ email }); // Assuming you're using Mongoose
-
+        const user = await User.findOne({ email });
         if (!user) {
             return res.status(401).json({ message: 'Invalid email or password.' });
         }
-
-        // Direct comparison without hashing (as per your requirement)
         if (user.password !== password) {
             return res.status(401).json({ message: 'Invalid email or password.' });
         }
-
-        // Successful login
         res.status(200).json({ message: 'Login successful!', user });
     } catch (error) {
-        console.error('Login error:', error); // Log error details
+        console.error('Login error:', error);
         res.status(500).json({ message: 'Internal server error. Please try again.' });
     }
 });
