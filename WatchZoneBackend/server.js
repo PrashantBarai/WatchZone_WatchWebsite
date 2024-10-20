@@ -16,7 +16,7 @@ app.use('/uploads', express.static('uploads')); // Serve the uploads directory
 app.use(express.static('public')); // Serve static files from the public directory
 
 // MongoDB connection
-const uri = process.env.MONGODB_URI; // Ensure your connection string is set in .env
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
     .catch(err => console.error("MongoDB connection error:", err));
@@ -24,11 +24,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 // Set up multer for file storage
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');  // Save files to the uploads directory
+        cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname)); // Create unique filename
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
     }
 });
 
@@ -39,20 +39,29 @@ app.get('/add-product', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'add-product.html'));
 });
 
-// Product Schema
-const productSchema = new mongoose.Schema({
+// Smart Watch Schema
+const smartWatchSchema = new mongoose.Schema({
     name: String,
     price: Number,
     imageUrl: String,
     description: String,
 });
 
-// Product Model
-const Product = mongoose.model('Product', productSchema);
+// Analytical Watch Schema
+const analyticalWatchSchema = new mongoose.Schema({
+    name: String,
+    price: Number,
+    imageUrl: String,
+    description: String,
+});
+
+// Models
+const SmartWatch = mongoose.model('SmartWatch', smartWatchSchema);
+const AnalyticalWatch = mongoose.model('AnalyticalWatch', analyticalWatchSchema);
 
 // Route to Add Product (POST)
 app.post('/api/products', upload.single('image'), async (req, res) => {
-    const { name, price, description } = req.body;
+    const { name, price, description, watchType } = req.body;
 
     if (!req.file) {
         return res.status(400).json({ message: 'No file uploaded.' });
@@ -61,22 +70,40 @@ app.post('/api/products', upload.single('image'), async (req, res) => {
     const imageUrl = `http://localhost:${PORT}/uploads/${req.file.filename}`;
 
     try {
-        const newProduct = new Product({ name, price, imageUrl, description });
-        await newProduct.save();
-        res.status(201).json(newProduct);
+        let newWatch;
+        if (watchType === 'smart') {
+            newWatch = new SmartWatch({ name, price, imageUrl, description });
+        } else if (watchType === 'analytical') {
+            newWatch = new AnalyticalWatch({ name, price, imageUrl, description });
+        } else {
+            return res.status(400).json({ message: 'Invalid watch type.' });
+        }
+
+        await newWatch.save();
+        res.status(201).json(newWatch);
     } catch (err) {
-        console.error('Error saving product:', err); // Log the error for debugging
+        console.error('Error saving product:', err);
         res.status(500).json({ message: 'Failed to add product' });
     }
 });
 
-// Route to Retrieve Products (GET)
-app.get('/api/products', async (req, res) => {
+// Route to Retrieve Smart Watches (GET)
+app.get('/api/smart-watches', async (req, res) => {
     try {
-        const products = await Product.find();
-        res.status(200).json(products);
+        const watches = await SmartWatch.find();
+        res.status(200).json(watches);
     } catch (err) {
-        res.status(500).json({ message: 'Failed to retrieve products' });
+        res.status(500).json({ message: 'Failed to retrieve smart watches' });
+    }
+});
+
+// Route to Retrieve Analytical Watches (GET)
+app.get('/api/analytical-watches', async (req, res) => {
+    try {
+        const watches = await AnalyticalWatch.find();
+        res.status(200).json(watches);
+    } catch (err) {
+        res.status(500).json({ message: 'Failed to retrieve analytical watches' });
     }
 });
 

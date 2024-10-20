@@ -19,6 +19,12 @@
         
         <label for="image">Image:</label>
         <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+        <label>Watch Type:</label><br>
+        <input type="radio" id="smart" name="watchType" value="smart" required>
+        <label for="smart">Smart Watch</label><br>
+        <input type="radio" id="analytical" name="watchType" value="analytical" required>
+        <label for="analytical">Analytical Watch</label><br><br>
         
         <button type="submit">Add Product</button>
     </form>
@@ -31,7 +37,6 @@
                 method: 'POST',
                 body: formData
             });
-
 
             if (response.ok) {
                 alert('Product added successfully!');

@@ -1,90 +1,112 @@
-        const customDayButton = document.getElementById('custom-day');
-            const customDateInput = document.getElementById('custom-date');
-            const priceCheckbox = document.getElementById('price-checkbox');
-            const brandCheckbox = document.getElementById('brand-checkbox');
-            const priceRange = document.getElementById('price-range');
-            const brandFilter = document.getElementById('brand-filter');
-            const priceInput = document.getElementById('price-input');
-            const priceValue = document.getElementById('price-value');
-            const productGrid = document.getElementById('product-grid');
-            const arrowRight = document.getElementById('arrow-right');
+document.addEventListener('DOMContentLoaded', () => {
+    fetchSmartWatches();
+    initializeEventListeners();
+});
 
-            priceInput.addEventListener('input', () => {
-            priceValue.textContent = `$${priceInput.value}`;
-            });
+async function fetchSmartWatches() {
+    try {
+        const response = await fetch('http://localhost:5000/api/smart-watches'); // Update URL if needed
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const smartWatches = await response.json();
+        displaySmartWatches(smartWatches);
+    } catch (error) {
+        console.error('Failed to fetch smart watches:', error);
+    }
+}
 
-            customDayButton.addEventListener('click', () => {
-                customDateInput.classList.toggle('hidden');
-            });
+function displaySmartWatches(watches) {
+    const productGrid = document.getElementById('product-grid');
+    productGrid.innerHTML = ''; // Clear existing content
 
-            priceCheckbox.addEventListener('change', () => {
-                priceRange.classList.toggle('hidden');
-            }); 
+    if (watches.length === 0) {
+        productGrid.innerHTML = `<p class="text-gray-500">No smart watches found.</p>`;
+        return;
+    }
 
-            brandCheckbox.addEventListener('change', () => {
-                brandFilter.classList.toggle('hidden');
-            });
+    watches.forEach(watch => {
+        const card = document.createElement('div');
+        card.classList.add('custom-card', 'bg-white', 'p-4');
 
-            priceInput.addEventListener('input', () => {
-                priceValue.textContent = `$${priceInput.value}`;
-            });
+        card.innerHTML = `
+            <img src="${watch.imageUrl}" alt="${watch.name}" class="w-full">
+            <div class="mt-4">
+                <h3 class="font-semibold text-lg">${watch.name}</h3>
+                <p class="text-gray-500">$${watch.price}</p>
+                <button class="text-orange-500 mt-2"><a href="viewsw.html?id=${watch._id}">View Product</a></button>
+                <div class="mt-4 flex justify-between">
+                    <button class="text-gray-400 hover:text-red-500 favorite-button"><i class="fas fa-star"></i></button>
+                    <button class="text-gray-400 hover:text-green-500 bookmark-button"><i class="fas fa-bookmark"></i></button>
+                    <button class="text-gray-400 hover:text-blue-500 cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        `;
 
-            document.querySelectorAll('.sidebar-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    document.querySelectorAll('.sidebar-button').forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                });
-            });
+        productGrid.appendChild(card);
+    });
+}
 
-            // JavaScript to handle adding to Favorites, Bookmarks, and Cart
-            document.querySelectorAll('.fas.fa-star').forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Added to Favorites');
-                    // Additional logic for adding to the sidebar
-                });
-            });
+function initializeEventListeners() {
+    const customDayButton = document.getElementById('custom-day');
+    const customDateInput = document.getElementById('custom-date');
+    const priceCheckbox = document.getElementById('price-checkbox');
+    const brandCheckbox = document.getElementById('brand-checkbox');
+    const priceRange = document.getElementById('price-range');
+    const brandFilter = document.getElementById('brand-filter');
+    const priceInput = document.getElementById('price-input');
+    const priceValue = document.getElementById('price-value');
+    const arrowRight = document.getElementById('arrow-right');
 
-            document.querySelectorAll('.fas.fa-bookmark').forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Added to Bookmarks');
-                    // Additional logic for adding to the sidebar
-                });
-            });
+    priceInput.addEventListener('input', () => {
+        priceValue.textContent = `$${priceInput.value}`;
+    });
 
-            document.querySelectorAll('.fas.fa-shopping-cart').forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Added to Cart');
-                    // Additional logic for adding to the sidebar
-                });
-            });
+    customDayButton.addEventListener('click', () => {
+        customDateInput.classList.toggle('hidden');
+    });
 
-            document.getElementById("nextCards").addEventListener("click", function() {
-                // Logic to load the next set of cards
-                // This can be a function that adds more cards dynamically
-            });
-            
+    priceCheckbox.addEventListener('change', () => {
+        priceRange.classList.toggle('hidden');
+    });
 
-            // Arrow button visibility toggle
-            const sidebar = document.querySelector('aside');
+    brandCheckbox.addEventListener('change', () => {
+        brandFilter.classList.toggle('hidden');
+    });
 
-            const observer = new IntersectionObserver(([entry]) => {
-                if (!entry.isIntersecting) {
-                    arrowRight.classList.remove('hidden');
-                } else {
-                    arrowRight.classList.add('hidden');
-                }
-            });
+    document.querySelectorAll('.sidebar-button').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.sidebar-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
 
-            observer.observe(sidebar);
+    // Event listeners for buttons in product cards
+    document.addEventListener('click', (event) => {
+        if (event.target.closest('.favorite-button')) {
+            alert('Added to Favorites');
+        }
+        if (event.target.closest('.bookmark-button')) {
+            alert('Added to Bookmarks');
+        }
+        if (event.target.closest('.cart-button')) {
+            alert('Added to Cart');
+        }
+    });
 
-            arrowRight.addEventListener('click', () => {
-                sidebar.classList.toggle('hidden');
-            });
+    // Arrow button visibility toggle
+    const sidebar = document.querySelector('aside');
+    const observer = new IntersectionObserver(([entry]) => {
+        arrowRight.classList.toggle('hidden', entry.isIntersecting);
+    });
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    arrowRight.classList.remove('hidden');
-                } else {
-                    arrowRight.classList.add('hidden');
-                }
-            });
+    observer.observe(sidebar);
+
+    arrowRight.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+
+    window.addEventListener('scroll', () => {
+        arrowRight.classList.toggle('hidden', window.scrollY <= 300);
+    });
+}

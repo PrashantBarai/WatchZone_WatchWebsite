@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <script src="https://fontawesome.com/search?m=free&o=r" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>WatchZone - Smart Watches</title>
+    <title>WatchZone - Analog Watches</title>
     <style>
         .custom-card {
             border-radius: 20px;
@@ -30,13 +30,11 @@
             color: white;
         }
 
-        /* Sidebar styling for rounded corners */
         aside {
             border-radius: 45px;
             margin-right: 20px;
         }
 
-        /* Arrow button */
         .arrow-button {
             position: fixed;
             right: 10px;
@@ -53,10 +51,6 @@
 
         .hidden {
             display: none;
-        }
-
-        .show {
-            display: block;
         }
     </style>
 </head>
@@ -100,9 +94,9 @@
                 <div id="brand-filter" class="hidden">
                     <select id="brand-select" class="w-full mt-2 p-2 border rounded-3xl">
                         <option value="">Select a Brand</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="Apple">Apple</option>
-                        <option value="Fossil">Fossil</option>
+                        <option value="Seiko">Seiko</option>
+                        <option value="Citizen">Citizen</option>
+                        <option value="Rolex">Rolex</option>
                         <!-- Add more brands as needed -->
                     </select>
                 </div>
@@ -132,8 +126,8 @@
             <div class="custom-card bg-white p-4">
                 <img src="/Images/A2.png" alt="Product Image" class="w-full">
                 <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
+                    <h3 class="font-semibold text-lg">Seiko Analog Watch</h3>
+                    <p class="text-gray-500">$150</p>
                     <button class="text-orange-500 mt-2"><a href="viewaw.html">View Product</a></button>
                     <div class="mt-4 flex justify-between">
                         <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
@@ -146,8 +140,8 @@
             <div class="custom-card bg-white p-4">
                 <img src="/Images/A2.png" alt="Product Image" class="w-full">
                 <div class="mt-4">
-                    <h3 class="font-semibold text-lg" >Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
+                    <h3 class="font-semibold text-lg">Citizen Eco-Drive</h3>
+                    <p class="text-gray-500">$180</p>
                     <button class="text-orange-500 mt-2"><a href="viewaw.html">View Product</a></button>
                     <div class="mt-4 flex justify-between">
                         <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
@@ -160,8 +154,8 @@
             <div class="custom-card bg-white p-4">
                 <img src="/Images/A2.png" alt="Product Image" class="w-full">
                 <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
+                    <h3 class="font-semibold text-lg">Rolex Datejust</h3>
+                    <p class="text-gray-500">$10000</p>
                     <button class="text-orange-500 mt-2"><a href="viewaw.html">View Product</a></button>
                     <div class="mt-4 flex justify-between">
                         <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
@@ -171,92 +165,20 @@
                 </div>
             </div>
 
-            <div class="custom-card bg-white p-4">
-                <img src="/Images/A2.png" alt="Product Image" class="w-full">
-                <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
-                    <button class="text-orange-500 mt-2"><a href="viewaw.html">View Product</a></button>
-                    <div class="mt-4 flex justify-between">
-                        <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                        <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                        <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="custom-card bg-white p-4">
-                <img src="/Images/A2.png" alt="Product Image" class="w-full">
-                <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
-                    <button class="text-orange-500 mt-2">View Product</button>
-                    <div class="mt-4 flex justify-between">
-                        <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                        <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                        <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="custom-card bg-white p-4">
-                <img src="/Images/A2.png" alt="Product Image" class="w-full">
-                <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
-                    <button class="text-orange-500 mt-2">View Product</button>
-                    <div class="mt-4 flex justify-between">
-                        <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                        <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                        <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="custom-card bg-white p-4">
-                <img src="/Images/A2.png" alt="Product Image" class="w-full">
-                <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
-                    <button class="text-orange-500 mt-2">View Product</button>
-                    <div class="mt-4 flex justify-between">
-                        <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                        <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                        <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="custom-card bg-white p-4">
-                <img src="/Images/A2.png" alt="Product Image" class="w-full">
-                <div class="mt-4">
-                    <h3 class="font-semibold text-lg">Fossil Watch 6</h3>
-                    <p class="text-gray-500">$50</p>
-                    <button class="text-orange-500 mt-2">View Product</button>
-                    <div class="mt-4 flex justify-between">
-                        <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                        <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                        <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Repeat for more products -->
-            <!-- Add your product cards here -->
+            <!-- Add more product cards as needed -->
         </section>
-        
+
         <button id="arrow-right" class="arrow-button hidden">
             <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>
 
     <!-- Footer -->
-<footer class="bg-yellow-400 bg-opacity-50 text-black py-3 mt-6 text-center">
-    <p>&copy; 2024 WatchZone. All rights reserved.</p>
-</footer>
+    <footer class="bg-yellow-400 bg-opacity-50 text-black py-3 mt-6 text-center">
+        <p>&copy; 2024 WatchZone. All rights reserved.</p>
+    </footer>
 
     <script src="/JS/analogwatch.js"></script>
-
 </body>
 
 </html>

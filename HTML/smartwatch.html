@@ -1,262 +1,59 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://fontawesome.com/search?m=free&o=r" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>WatchZone - Smart Watches</title>
+    <style>
+        .custom-card {
+            border-radius: 20px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-        <script src="https://fontawesome.com/search?m=free&o=r" crossorigin="anonymous"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>WatchZone - Smart Watches</title>
-        <style>
-            .custom-card {
-                border-radius: 20px;
-                box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-            }
-
-            .active {
-                border: 2px solid #FF5733;
-                background-color: rgba(255, 87, 51, 0.1);
-            }
-
-            .sidebar-button:hover {
-                background-color: #FF5733;
-                color: white;
-            }
-
-            .sidebar-button.active {
-                background-color: #FF5733;
-                color: white;
-            }
-
-            /* Sidebar styling for rounded corners */
-            aside {
-                border-radius: 45px;
-                margin-right: 20px;
-            }
-
-            /* Arrow button */
-            .arrow-button {
-                position: fixed;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: #FF5733;
-                color: white;
-                border-radius: 50%;
-                border: none;
-                padding: 10px;
-                cursor: pointer;
-                display: none;
-            }
-
-            .hidden {
-                display: none;
-            }
-
-            .show {
-                display: block;
-            }
-        </style>
-    </head>
-
-    <body class="bg-gray-100">
-
-        <!-- Header -->
-        <header class="bg-white p-4 shadow-md">
-            <div class="container mx-auto flex justify-between items-center">
-                <div>
-                    <h1 class="text-2xl font-bold text-orange-500 ml-12">WatchZone</h1>
-                    <p class="text-gray-500">Your Premier Destination of Watches</p>
-                </div>
-                <nav class="flex space-x-6">
-                    <a href="landing.html" class="text-gray-700 hover:text-orange-500">Home</a>
-                    <a href="smartwatch.html" class="text-orange-500 font-bold">Smart Watches</a>
-                    <a href="analogwatch.html" class="text-gray-700 hover:text-orange-500">Analog Watches</a>
-                    <a href="history.html" class="text-gray-700 hover:text-orange-500">View History</a>
-                    <a href="checkout.html" class="text-gray-700 hover:text-orange-500">Checkout</a>
-                    <a href="#" class="text-gray-700 hover:text-orange-500">Contact</a>
-                </nav>
+    <!-- Header -->
+    <header class="bg-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-orange-500 ml-12">WatchZone</h1>
+                <p class="text-gray-500">Your Premier Destination of Watches</p>
             </div>
-        </header>
-
-        <!-- Main Content -->
-        <div class="container mx-auto mt-6 flex">
-            <!-- Sidebar -->
-            <aside class="w-1/4 bg-white p-6 shadow-md">
-                <h2 class="text-lg font-semibold mb-4">Sort By</h2>
-                <div class="mb-6">
-                    <label class="block mb-2">
-                        <input type="checkbox" class="mr-2" id="price-checkbox"> Price
-                    </label>
-                    <div id="price-range" class="hidden">
-                        <input type="range" min="50" max="1000" value="250" class="w-full" id="price-input">
-                        <p>Selected Price: <span id="price-value">$250</span></p>
-                    </div>
-                    <label class="block mb-2">
-                        <input type="checkbox" class="mr-2" id="brand-checkbox"> Brand
-                    </label>
-                    <div id="brand-filter" class="hidden">
-                        <select id="brand-select" class="w-full mt-2 p-2 border rounded-3xl">
-                            <option value="">Select a Brand</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="Apple">Apple</option>
-                            <option value="Fossil">Fossil</option>
-                            <!-- Add more brands as needed -->
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Shipping Period -->
-                <h2 class="text-lg font-semibold mb-4">Shipping Period</h2>
-                <div class="space-y-3">
-                    <button id="one-day" class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl">1 Day</button>
-                    <button id="two-day" class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl">2 Day</button>
-                    <button id="custom-day" class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl">Custom Delivery Day</button>
-                    <input type="date" id="custom-date" class="w-full p-2 mt-2 border rounded-3xl hidden">
-                </div>
-
-                <h2 class="text-lg font-semibold mt-8 mb-4">History</h2>
-                <div class="space-y-3">
-                    <button class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl"><a href="history.html">Bookmarks</a></button>
-                    <button class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl"><a href="history.html">Favorites</a></button>
-                    <button class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl"><a href="history.html">Add to Cart</a></button>
-                    <button class="sidebar-button w-full p-2 text-left bg-gray-200 hover:bg-orange-500 hover:text-white rounded-3xl"><a href="checkout.html">Checkout</a></button>
-                </div>
-            </aside>
-
-            <!-- Main Product Grid -->
-            <section class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden" id="product-grid">
-                <!-- Product Cards -->
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2"><a href="viewsw.html">View Product</a></button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg" >Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2"><a href="viewsw.html">View Product</a></button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2"><a href="viewsw.html">View Product</a></button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2"><a href="viewsw.html">View Product</a></button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2">View Product</button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2">View Product</button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2">View Product</button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-card bg-white p-4">
-                    <img src="/Images/D1.png" alt="Product Image" class="w-full">
-                    <div class="mt-4">
-                        <h3 class="font-semibold text-lg">Samsung Watch 6</h3>
-                        <p class="text-gray-500">$50</p>
-                        <button class="text-orange-500 mt-2">View Product</button>
-                        <div class="mt-4 flex justify-between">
-                            <button class="text-gray-400 hover:text-red-500"><i class="fas fa-star"></i></button>
-                            <button class="text-gray-400 hover:text-green-500"><i class="fas fa-bookmark"></i></button>
-                            <button class="text-gray-400 hover:text-blue-500"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Repeat for more products -->
-                <!-- Add your product cards here -->
-            </section>
-            
-            <button id="arrow-right" class="arrow-button hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <nav class="flex space-x-6">
+                <a href="landing.html" class="text-gray-700 hover:text-orange-500">Home</a>
+                <a href="smartwatch.html" class="text-orange-500 font-bold">Smart Watches</a>
+                <a href="analogwatch.html" class="text-gray-700 hover:text-orange-500">Analog Watches</a>
+                <a href="history.html" class="text-gray-700 hover:text-orange-500">View History</a>
+                <a href="checkout.html" class="text-gray-700 hover:text-orange-500">Checkout</a>
+                <a href="#" class="text-gray-700 hover:text-orange-500">Contact</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- Footer -->
+    <!-- Main Content -->
+    <div class="container mx-auto mt-6 flex">
+        <!-- Sidebar (optional) -->
+        <aside class="w-1/4 bg-white p-6 shadow-md">
+            <h2 class="text-lg font-semibold mb-4">Sort By</h2>
+            <!-- Your sidebar content -->
+        </aside>
+
+        <!-- Main Product Grid -->
+        <section class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden" id="product-grid">
+            <!-- Product Cards will be injected here -->
+        </section>
+    </div>
+
+    <!-- Footer -->
     <footer class="bg-yellow-400 bg-opacity-50 text-black py-3 mt-6 text-center">
         <p>&copy; 2024 WatchZone. All rights reserved.</p>
     </footer>
 
-        <script src="/JS/smartwatch.js"></script>
-
-    </body>
-
-    </html>
+    <script src="/JS/smartwatch.js"></script>
+</body>
+</html>
